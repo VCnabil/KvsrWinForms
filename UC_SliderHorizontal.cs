@@ -1,5 +1,4 @@
-﻿using Kvaser.CanLib;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -8,14 +7,16 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
+using MetroFramework.Controls;
 namespace KVSRWindowsFormsAppFramework
 {
-    public partial class Form1 : Form
+    public partial class UC_SliderHorizontal : MetroUserControl
     {
-        public Form1()
+
+        public UC_SliderHorizontal()
         {
             InitializeComponent();
+
         }
     }
 }

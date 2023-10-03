@@ -16,6 +16,12 @@ namespace KVSRWindowsFormsAppFramework
         public Form1()
         {
             InitializeComponent();
+            uC_SliderHorizontal1.SliderValueChanged += OnSliderValueChangedInForm;  
+
+        }
+        private void OnSliderValueChangedInForm(object sender, EventArgs e)
+        {
+            tb_Form1_0.Text = uC_SliderHorizontal1.SliderValue.ToString(); // Update TextBox
         }
     }
 }

@@ -20,23 +20,23 @@ namespace KVSRWindowsFormsAppFramework
 
         private void button1_Click(object sender, EventArgs e)
         {
-            Canlib.canStatus R;
-            int V;
+            //Canlib.canStatus R;
+            //int V;
 
-            textBox1.Clear();
-            textBox1.Text = "DEMO VS2019\r\n";
+            //textBox1.Clear();
+            //textBox1.Text = "DEMO VS2019\r\n";
 
-            Canlib.canInitializeLibrary();
+            //Canlib.canInitializeLibrary();
 
-            V = Canlib.canGetVersionEx(Canlib.canVERSION_CANLIB32_PRODVER32);
-            int V1 = (V & 0xFF0000) >> 16;
-            int V2 = (V & 0xFF00) >> 8;
-            textBox1.Text += string.Format("Found CANlib version {0}.{1}\r\n", V1, V2);
+            //V = Canlib.canGetVersionEx(Canlib.canVERSION_CANLIB32_PRODVER32);
+            //int V1 = (V & 0xFF0000) >> 16;
+            //int V2 = (V & 0xFF00) >> 8;
+            //textBox1.Text += string.Format("Found CANlib version {0}.{1}\r\n", V1, V2);
 
-            R = Canlib.canGetNumberOfChannels(out int NOC);
+            //R = Canlib.canGetNumberOfChannels(out int NOC);
 
-            textBox1.Text += string.Format("Found {0} channels\r\n", NOC);
-            textBox1.Text += "----------------------------------------\r\n";
+            //textBox1.Text += string.Format("Found {0} channels\r\n", NOC);
+            //textBox1.Text += "----------------------------------------\r\n";
         }
     }
 }

@@ -199,6 +199,7 @@
             this.metroTrackBar1.BackColor = System.Drawing.Color.Transparent;
             this.metroTrackBar1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.metroTrackBar1.Location = new System.Drawing.Point(0, 0);
+            this.metroTrackBar1.Maximum = 255;
             this.metroTrackBar1.Name = "metroTrackBar1";
             this.metroTrackBar1.Size = new System.Drawing.Size(328, 45);
             this.metroTrackBar1.TabIndex = 4;

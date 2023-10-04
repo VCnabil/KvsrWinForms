@@ -12,7 +12,7 @@ namespace KVSRWindowsFormsAppFramework
 {
     public partial class UC_Byte : UserControl
     {
-        private int value = 0;
+        private int Finalvalue = 0;
 
         public UC_Byte()
         {
@@ -33,6 +33,17 @@ namespace KVSRWindowsFormsAppFramework
             this.textBox_Dec.TextChanged += new System.EventHandler(this.textBoxDec_TextChanged);
             this.metroTrackBar1.ValueChanged += new System.EventHandler(this.slider_ValueChanged);
             TogglePanels(panel_Bin);
+            this.metroRadioButton1_bin.Checked = true;
+        }
+        public event Action<int> ValueChanged;
+        public void SetGroupBoxText(string newText)
+        {
+            groupBox1.Text = newText;
+        }
+
+        public int GetByte_Value()
+        {
+            return this.Finalvalue;
         }
         private void TogglePanels(Panel activePanel)
         {
@@ -65,14 +76,14 @@ namespace KVSRWindowsFormsAppFramework
 
         private void checkBox_CheckedChanged(object sender, EventArgs e)
         { 
-            value = (metroCheckBox_0.Checked ? 1 : 0) + (metroCheckBox_1.Checked ? 2 : 0) + (metroCheckBox_2.Checked ? 4 : 0) + (metroCheckBox_3.Checked ? 8 : 0) + (metroCheckBox_4.Checked ? 16 : 0) + (metroCheckBox_5.Checked ? 32 : 0) + (metroCheckBox_6.Checked ? 64 : 0) + (metroCheckBox_7.Checked ? 128 : 0);
+            Finalvalue = (metroCheckBox_0.Checked ? 1 : 0) + (metroCheckBox_1.Checked ? 2 : 0) + (metroCheckBox_2.Checked ? 4 : 0) + (metroCheckBox_3.Checked ? 8 : 0) + (metroCheckBox_4.Checked ? 16 : 0) + (metroCheckBox_5.Checked ? 32 : 0) + (metroCheckBox_6.Checked ? 64 : 0) + (metroCheckBox_7.Checked ? 128 : 0);
             UpdateValue();
         }
         private void textBoxHex_TextChanged(object sender, EventArgs e)
         {
             if (int.TryParse(textBox_HEX.Text, System.Globalization.NumberStyles.HexNumber, null, out int hexValue))
             {
-                value = hexValue;
+                Finalvalue = hexValue;
                 UpdateValue();
             }
         }
@@ -80,19 +91,21 @@ namespace KVSRWindowsFormsAppFramework
         {
             if (int.TryParse(textBox_Dec.Text, out int decValue))
             {
-                value = decValue;
+                Finalvalue = decValue;
                 UpdateValue();
             }
         }
         private void slider_ValueChanged(object sender, EventArgs e)
         {
-            value = metroTrackBar1.Value;
+            Finalvalue = metroTrackBar1.Value;
             UpdateValue();
         }
         private void UpdateValue()
         {
             // Update the value wherever needed
-            label1_FinalValue.Text = "Value: " + value.ToString();
+            //label1_FinalValue.Text = "Value: " + Finalvalue.ToString();
+            label1_FinalValue.Text = $"Value: {Finalvalue} (0x{Finalvalue:X})";
+            ValueChanged?.Invoke(Finalvalue);
         }
     }
 }

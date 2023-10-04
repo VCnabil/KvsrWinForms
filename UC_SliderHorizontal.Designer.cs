@@ -34,7 +34,7 @@
             // mTB_Local_0
             // 
             this.mTB_Local_0.BackColor = System.Drawing.Color.Transparent;
-            this.mTB_Local_0.Location = new System.Drawing.Point(27, 32);
+            this.mTB_Local_0.Location = new System.Drawing.Point(176, 34);
             this.mTB_Local_0.Name = "mTB_Local_0";
             this.mTB_Local_0.Size = new System.Drawing.Size(344, 73);
             this.mTB_Local_0.TabIndex = 0;
@@ -45,10 +45,10 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(14F, 29F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.mTB_Local_0);
-            this.MaximumSize = new System.Drawing.Size(400, 200);
+            this.MaximumSize = new System.Drawing.Size(600, 400);
             this.MinimumSize = new System.Drawing.Size(400, 200);
             this.Name = "UC_SliderHorizontal";
-            this.Size = new System.Drawing.Size(400, 200);
+            this.Size = new System.Drawing.Size(600, 400);
             this.ResumeLayout(false);
 
         }

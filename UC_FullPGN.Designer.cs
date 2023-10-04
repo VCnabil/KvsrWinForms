@@ -82,15 +82,15 @@
             this.tableLayoutPanel1.Location = new System.Drawing.Point(291, 2);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 2;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 64.66019F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 35.33981F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(3600, 436);
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 82.52873F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 17.47126F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(3600, 324);
             this.tableLayoutPanel1.TabIndex = 1;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(2698, 281);
+            this.label1.Location = new System.Drawing.Point(2698, 266);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(79, 29);
             this.label1.TabIndex = 8;
@@ -99,7 +99,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(2249, 281);
+            this.label2.Location = new System.Drawing.Point(2249, 266);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(79, 29);
             this.label2.TabIndex = 9;
@@ -108,7 +108,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(1800, 281);
+            this.label3.Location = new System.Drawing.Point(1800, 266);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(79, 29);
             this.label3.TabIndex = 10;
@@ -117,7 +117,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(1351, 281);
+            this.label4.Location = new System.Drawing.Point(1351, 266);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(79, 29);
             this.label4.TabIndex = 11;
@@ -126,7 +126,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(902, 281);
+            this.label5.Location = new System.Drawing.Point(902, 266);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(79, 29);
             this.label5.TabIndex = 12;
@@ -135,7 +135,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(453, 281);
+            this.label6.Location = new System.Drawing.Point(453, 266);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(79, 29);
             this.label6.TabIndex = 13;
@@ -144,7 +144,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(4, 281);
+            this.label7.Location = new System.Drawing.Point(4, 266);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(79, 29);
             this.label7.TabIndex = 14;
@@ -153,7 +153,7 @@
             // label0
             // 
             this.label0.AutoSize = true;
-            this.label0.Location = new System.Drawing.Point(3147, 281);
+            this.label0.Location = new System.Drawing.Point(3147, 266);
             this.label0.Name = "label0";
             this.label0.Size = new System.Drawing.Size(79, 29);
             this.label0.TabIndex = 15;
@@ -162,7 +162,7 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(13, 297);
+            this.label8.Location = new System.Drawing.Point(13, 83);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(79, 29);
             this.label8.TabIndex = 2;
@@ -173,13 +173,13 @@
             this.textBox1_PGNentry.Location = new System.Drawing.Point(18, 32);
             this.textBox1_PGNentry.MaxLength = 8;
             this.textBox1_PGNentry.Name = "textBox1_PGNentry";
-            this.textBox1_PGNentry.Size = new System.Drawing.Size(118, 35);
+            this.textBox1_PGNentry.Size = new System.Drawing.Size(227, 35);
             this.textBox1_PGNentry.TabIndex = 3;
             this.textBox1_PGNentry.Text = "11223344";
             // 
             // button1_Generate
             // 
-            this.button1_Generate.Location = new System.Drawing.Point(18, 362);
+            this.button1_Generate.Location = new System.Drawing.Point(18, 265);
             this.button1_Generate.Name = "button1_Generate";
             this.button1_Generate.Size = new System.Drawing.Size(211, 61);
             this.button1_Generate.TabIndex = 4;
@@ -190,56 +190,56 @@
             // 
             this.uC_Byte0.Location = new System.Drawing.Point(3147, 4);
             this.uC_Byte0.Name = "uC_Byte0";
-            this.uC_Byte0.Size = new System.Drawing.Size(449, 261);
+            this.uC_Byte0.Size = new System.Drawing.Size(449, 258);
             this.uC_Byte0.TabIndex = 0;
             // 
             // uC_Byte1
             // 
             this.uC_Byte1.Location = new System.Drawing.Point(2698, 4);
             this.uC_Byte1.Name = "uC_Byte1";
-            this.uC_Byte1.Size = new System.Drawing.Size(442, 261);
+            this.uC_Byte1.Size = new System.Drawing.Size(442, 258);
             this.uC_Byte1.TabIndex = 1;
             // 
             // uC_Byte2
             // 
             this.uC_Byte2.Location = new System.Drawing.Point(2249, 4);
             this.uC_Byte2.Name = "uC_Byte2";
-            this.uC_Byte2.Size = new System.Drawing.Size(442, 261);
+            this.uC_Byte2.Size = new System.Drawing.Size(442, 258);
             this.uC_Byte2.TabIndex = 2;
             // 
             // uC_Byte3
             // 
             this.uC_Byte3.Location = new System.Drawing.Point(1800, 4);
             this.uC_Byte3.Name = "uC_Byte3";
-            this.uC_Byte3.Size = new System.Drawing.Size(442, 261);
+            this.uC_Byte3.Size = new System.Drawing.Size(442, 258);
             this.uC_Byte3.TabIndex = 3;
             // 
             // uC_Byte4
             // 
             this.uC_Byte4.Location = new System.Drawing.Point(1351, 4);
             this.uC_Byte4.Name = "uC_Byte4";
-            this.uC_Byte4.Size = new System.Drawing.Size(442, 261);
+            this.uC_Byte4.Size = new System.Drawing.Size(442, 258);
             this.uC_Byte4.TabIndex = 4;
             // 
             // uC_Byte5
             // 
             this.uC_Byte5.Location = new System.Drawing.Point(902, 4);
             this.uC_Byte5.Name = "uC_Byte5";
-            this.uC_Byte5.Size = new System.Drawing.Size(442, 261);
+            this.uC_Byte5.Size = new System.Drawing.Size(442, 258);
             this.uC_Byte5.TabIndex = 5;
             // 
             // uC_Byte6
             // 
             this.uC_Byte6.Location = new System.Drawing.Point(453, 4);
             this.uC_Byte6.Name = "uC_Byte6";
-            this.uC_Byte6.Size = new System.Drawing.Size(442, 261);
+            this.uC_Byte6.Size = new System.Drawing.Size(442, 258);
             this.uC_Byte6.TabIndex = 6;
             // 
             // uC_Byte7
             // 
             this.uC_Byte7.Location = new System.Drawing.Point(4, 4);
             this.uC_Byte7.Name = "uC_Byte7";
-            this.uC_Byte7.Size = new System.Drawing.Size(442, 261);
+            this.uC_Byte7.Size = new System.Drawing.Size(442, 258);
             this.uC_Byte7.TabIndex = 7;
             // 
             // UC_FullPGN
@@ -251,7 +251,7 @@
             this.Controls.Add(this.label8);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Name = "UC_FullPGN";
-            this.Size = new System.Drawing.Size(3900, 447);
+            this.Size = new System.Drawing.Size(3900, 340);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
             this.ResumeLayout(false);

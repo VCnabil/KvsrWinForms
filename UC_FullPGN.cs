@@ -42,24 +42,27 @@ namespace KVSRWindowsFormsAppFramework
         public int Get_LocalPGN() { 
         return _localPGN_INT;
         }
-        public UC_Byte[] Get_Bytes()
+        public byte[] Get_Bytes()
         {
-            return uC_Bytes;
+            return data;
         }
-        private void ButtonGenerateCliked(object sender, EventArgs e)
-        {
+
+        public void Generate() {
 
             for (int i = 0; i < 8; i++)
             {
                 data[i] = (byte)uC_Bytes[i].GetByte_Value();
                 //labels[i].Text = uC_Bytes[i].GetByte_Value().ToString();
-               // labels[i].Text = data[i].ToString();
+                // labels[i].Text = data[i].ToString();
             }
             _localPGN_INT = HexStringToInt(textBox1_PGNentry.Text);
             label8.Text = _localPGN_INT.ToString();
-
-
         }
+        private void ButtonGenerateCliked(object sender, EventArgs e)
+        {
+            Generate();
+        }
+
         private void UpdateLabel(int index, int value)
         {
             labels[index].Text = value.ToString();

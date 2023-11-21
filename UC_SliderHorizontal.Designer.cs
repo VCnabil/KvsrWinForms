@@ -34,9 +34,9 @@
             // mTB_Local_0
             // 
             this.mTB_Local_0.BackColor = System.Drawing.Color.Transparent;
-            this.mTB_Local_0.Location = new System.Drawing.Point(176, 34);
+            this.mTB_Local_0.Location = new System.Drawing.Point(3, 3);
             this.mTB_Local_0.Name = "mTB_Local_0";
-            this.mTB_Local_0.Size = new System.Drawing.Size(344, 73);
+            this.mTB_Local_0.Size = new System.Drawing.Size(597, 84);
             this.mTB_Local_0.TabIndex = 0;
             this.mTB_Local_0.Text = "metroTrackBar1";
             // 
@@ -46,9 +46,9 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.mTB_Local_0);
             this.MaximumSize = new System.Drawing.Size(600, 400);
-            this.MinimumSize = new System.Drawing.Size(400, 200);
+            this.MinimumSize = new System.Drawing.Size(400, 90);
             this.Name = "UC_SliderHorizontal";
-            this.Size = new System.Drawing.Size(600, 400);
+            this.Size = new System.Drawing.Size(600, 90);
             this.ResumeLayout(false);
 
         }

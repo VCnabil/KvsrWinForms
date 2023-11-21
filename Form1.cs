@@ -49,6 +49,22 @@ namespace KVSRWindowsFormsAppFramework
             canManager.GoOffBus();
             canManager.CloseChannel();
         }
+
+        private void button_clearpv_Click(object sender, EventArgs e)
+        {
+            timer_autosend01.Enabled = !timer_autosend01.Enabled;
+        }
+
+        private void Timer_Tick(object sender, EventArgs e)
+        {
+            Sendear();
+        }
+
+ 
+        private void Sendear()
+        {
+            // Your implementation of Sendear
+        }
     }
 }
 

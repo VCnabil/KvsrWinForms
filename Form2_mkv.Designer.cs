@@ -121,6 +121,7 @@
             this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
             this.label3 = new System.Windows.Forms.Label();
             this.label17 = new System.Windows.Forms.Label();
+            this.cbALL = new System.Windows.Forms.CheckBox();
             this.tableLayoutPanel6 = new System.Windows.Forms.TableLayoutPanel();
             this.label20 = new System.Windows.Forms.Label();
             this.label19 = new System.Windows.Forms.Label();
@@ -145,9 +146,9 @@
             this.cbhpuB_D0_1 = new System.Windows.Forms.CheckBox();
             this.cbhpuB_D0_0 = new System.Windows.Forms.CheckBox();
             this.tableLayoutPanel7 = new System.Windows.Forms.TableLayoutPanel();
-            this.label18 = new System.Windows.Forms.Label();
+            this.cbALLMTUs = new System.Windows.Forms.CheckBox();
             this.label6 = new System.Windows.Forms.Label();
-            this.cbALL = new System.Windows.Forms.CheckBox();
+            this.label18 = new System.Windows.Forms.Label();
             this.cbMTU_A_D0_0 = new System.Windows.Forms.CheckBox();
             this.cbMTU_A_D0_1 = new System.Windows.Forms.CheckBox();
             this.cbMTU_A_D0_2 = new System.Windows.Forms.CheckBox();
@@ -157,9 +158,8 @@
             this.lbl_ffa2_A = new System.Windows.Forms.Label();
             this.lbl_ffa2_B = new System.Windows.Forms.Label();
             this.tableLayoutPanel8 = new System.Windows.Forms.TableLayoutPanel();
-            this.tableLayoutPanel9 = new System.Windows.Forms.TableLayoutPanel();
-            this.cbALLMTUs = new System.Windows.Forms.CheckBox();
             this.label21 = new System.Windows.Forms.Label();
+            this.tableLayoutPanel9 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel10 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel11 = new System.Windows.Forms.TableLayoutPanel();
             ((System.ComponentModel.ISupportInitialize)(this.slider_port_Speed)).BeginInit();
@@ -206,10 +206,10 @@
             // btnToggleTimer
             // 
             this.btnToggleTimer.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnToggleTimer.Location = new System.Drawing.Point(650, 44);
+            this.btnToggleTimer.Location = new System.Drawing.Point(656, 44);
             this.btnToggleTimer.Name = "btnToggleTimer";
             this.tableLayoutPanel10.SetRowSpan(this.btnToggleTimer, 2);
-            this.btnToggleTimer.Size = new System.Drawing.Size(158, 145);
+            this.btnToggleTimer.Size = new System.Drawing.Size(160, 145);
             this.btnToggleTimer.TabIndex = 4;
             this.btnToggleTimer.Text = "Run";
             this.btnToggleTimer.UseVisualStyleBackColor = true;
@@ -217,7 +217,7 @@
             // btn_controlUnitA_powered
             // 
             this.btn_controlUnitA_powered.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btn_controlUnitA_powered.Location = new System.Drawing.Point(4, 57);
+            this.btn_controlUnitA_powered.Location = new System.Drawing.Point(6, 57);
             this.btn_controlUnitA_powered.Name = "btn_controlUnitA_powered";
             this.btn_controlUnitA_powered.Size = new System.Drawing.Size(153, 49);
             this.btn_controlUnitA_powered.TabIndex = 5;
@@ -226,7 +226,7 @@
             // 
             // btn_controlUnitB_powered
             // 
-            this.btn_controlUnitB_powered.Location = new System.Drawing.Point(4, 113);
+            this.btn_controlUnitB_powered.Location = new System.Drawing.Point(6, 113);
             this.btn_controlUnitB_powered.Name = "btn_controlUnitB_powered";
             this.btn_controlUnitB_powered.Size = new System.Drawing.Size(153, 53);
             this.btn_controlUnitB_powered.TabIndex = 6;
@@ -247,7 +247,7 @@
             this.cb_port_clutchBlocked.AutoSize = true;
             this.tableLayoutPanel6.SetColumnSpan(this.cb_port_clutchBlocked, 2);
             this.cb_port_clutchBlocked.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.cb_port_clutchBlocked.Location = new System.Drawing.Point(105, 665);
+            this.cb_port_clutchBlocked.Location = new System.Drawing.Point(106, 665);
             this.cb_port_clutchBlocked.Name = "cb_port_clutchBlocked";
             this.cb_port_clutchBlocked.Size = new System.Drawing.Size(295, 59);
             this.cb_port_clutchBlocked.TabIndex = 11;
@@ -259,7 +259,7 @@
             this.cb_stbd_clutchBlocked.AutoSize = true;
             this.tableLayoutPanel6.SetColumnSpan(this.cb_stbd_clutchBlocked, 2);
             this.cb_stbd_clutchBlocked.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.cb_stbd_clutchBlocked.Location = new System.Drawing.Point(407, 665);
+            this.cb_stbd_clutchBlocked.Location = new System.Drawing.Point(408, 665);
             this.cb_stbd_clutchBlocked.Name = "cb_stbd_clutchBlocked";
             this.cb_stbd_clutchBlocked.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.cb_stbd_clutchBlocked.Size = new System.Drawing.Size(307, 59);
@@ -270,7 +270,7 @@
             // slider_port_Speed
             // 
             this.slider_port_Speed.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.slider_port_Speed.Location = new System.Drawing.Point(105, 5);
+            this.slider_port_Speed.Location = new System.Drawing.Point(106, 5);
             this.slider_port_Speed.Maximum = 100;
             this.slider_port_Speed.Name = "slider_port_Speed";
             this.slider_port_Speed.Orientation = System.Windows.Forms.Orientation.Vertical;
@@ -282,7 +282,7 @@
             // 
             this.lbl_port_Speed.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.lbl_port_Speed.AutoSize = true;
-            this.lbl_port_Speed.Location = new System.Drawing.Point(116, 524);
+            this.lbl_port_Speed.Location = new System.Drawing.Point(117, 524);
             this.lbl_port_Speed.Name = "lbl_port_Speed";
             this.lbl_port_Speed.Size = new System.Drawing.Size(123, 29);
             this.lbl_port_Speed.TabIndex = 14;
@@ -292,7 +292,7 @@
             // slider_stbd_Speed
             // 
             this.slider_stbd_Speed.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.slider_stbd_Speed.Location = new System.Drawing.Point(560, 5);
+            this.slider_stbd_Speed.Location = new System.Drawing.Point(561, 5);
             this.slider_stbd_Speed.Maximum = 100;
             this.slider_stbd_Speed.Name = "slider_stbd_Speed";
             this.slider_stbd_Speed.Orientation = System.Windows.Forms.Orientation.Vertical;
@@ -304,7 +304,7 @@
             // 
             this.lbl_stbd_Speed.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.lbl_stbd_Speed.AutoSize = true;
-            this.lbl_stbd_Speed.Location = new System.Drawing.Point(574, 524);
+            this.lbl_stbd_Speed.Location = new System.Drawing.Point(575, 524);
             this.lbl_stbd_Speed.Name = "lbl_stbd_Speed";
             this.lbl_stbd_Speed.Size = new System.Drawing.Size(127, 29);
             this.lbl_stbd_Speed.TabIndex = 16;
@@ -313,7 +313,7 @@
             // 
             // slider_port_Bucket
             // 
-            this.slider_port_Bucket.Location = new System.Drawing.Point(299, 5);
+            this.slider_port_Bucket.Location = new System.Drawing.Point(300, 5);
             this.slider_port_Bucket.Maximum = 250;
             this.slider_port_Bucket.Name = "slider_port_Bucket";
             this.slider_port_Bucket.Orientation = System.Windows.Forms.Orientation.Vertical;
@@ -322,7 +322,7 @@
             // 
             // slider_stbd_Bucket
             // 
-            this.slider_stbd_Bucket.Location = new System.Drawing.Point(452, 5);
+            this.slider_stbd_Bucket.Location = new System.Drawing.Point(453, 5);
             this.slider_stbd_Bucket.Maximum = 250;
             this.slider_stbd_Bucket.Name = "slider_stbd_Bucket";
             this.slider_stbd_Bucket.Orientation = System.Windows.Forms.Orientation.Vertical;
@@ -333,7 +333,7 @@
             // 
             this.lbl_port_bucket.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.lbl_port_bucket.AutoSize = true;
-            this.lbl_port_bucket.Location = new System.Drawing.Point(273, 443);
+            this.lbl_port_bucket.Location = new System.Drawing.Point(274, 443);
             this.lbl_port_bucket.Name = "lbl_port_bucket";
             this.lbl_port_bucket.Size = new System.Drawing.Size(112, 29);
             this.lbl_port_bucket.TabIndex = 19;
@@ -344,7 +344,7 @@
             // 
             this.lbl_stbd_bucket.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.lbl_stbd_bucket.AutoSize = true;
-            this.lbl_stbd_bucket.Location = new System.Drawing.Point(422, 443);
+            this.lbl_stbd_bucket.Location = new System.Drawing.Point(423, 443);
             this.lbl_stbd_bucket.Name = "lbl_stbd_bucket";
             this.lbl_stbd_bucket.Size = new System.Drawing.Size(116, 29);
             this.lbl_stbd_bucket.TabIndex = 20;
@@ -354,7 +354,7 @@
             // slider_port_Noz
             // 
             this.tableLayoutPanel6.SetColumnSpan(this.slider_port_Noz, 2);
-            this.slider_port_Noz.Location = new System.Drawing.Point(5, 589);
+            this.slider_port_Noz.Location = new System.Drawing.Point(6, 589);
             this.slider_port_Noz.Maximum = 250;
             this.slider_port_Noz.Name = "slider_port_Noz";
             this.slider_port_Noz.RightToLeft = System.Windows.Forms.RightToLeft.No;
@@ -364,7 +364,7 @@
             // slider_stbd_Noz
             // 
             this.tableLayoutPanel6.SetColumnSpan(this.slider_stbd_Noz, 2);
-            this.slider_stbd_Noz.Location = new System.Drawing.Point(561, 589);
+            this.slider_stbd_Noz.Location = new System.Drawing.Point(562, 589);
             this.slider_stbd_Noz.Maximum = 250;
             this.slider_stbd_Noz.Name = "slider_stbd_Noz";
             this.slider_stbd_Noz.RightToLeft = System.Windows.Forms.RightToLeft.No;
@@ -374,7 +374,7 @@
             // lbl_stbd_Noz
             // 
             this.lbl_stbd_Noz.AutoSize = true;
-            this.lbl_stbd_Noz.Location = new System.Drawing.Point(450, 586);
+            this.lbl_stbd_Noz.Location = new System.Drawing.Point(451, 586);
             this.lbl_stbd_Noz.Name = "lbl_stbd_Noz";
             this.lbl_stbd_Noz.Size = new System.Drawing.Size(103, 29);
             this.lbl_stbd_Noz.TabIndex = 23;
@@ -384,7 +384,7 @@
             // 
             this.lbl_port_Noz.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.lbl_port_Noz.AutoSize = true;
-            this.lbl_port_Noz.Location = new System.Drawing.Point(257, 586);
+            this.lbl_port_Noz.Location = new System.Drawing.Point(258, 586);
             this.lbl_port_Noz.Name = "lbl_port_Noz";
             this.lbl_port_Noz.Size = new System.Drawing.Size(99, 29);
             this.lbl_port_Noz.TabIndex = 24;
@@ -394,7 +394,7 @@
             // 
             this.rb_Sta_Main.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.rb_Sta_Main.AutoSize = true;
-            this.rb_Sta_Main.Location = new System.Drawing.Point(32, 56);
+            this.rb_Sta_Main.Location = new System.Drawing.Point(36, 56);
             this.rb_Sta_Main.Name = "rb_Sta_Main";
             this.rb_Sta_Main.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.rb_Sta_Main.Size = new System.Drawing.Size(144, 33);
@@ -407,7 +407,7 @@
             // 
             this.rb_Sta_Open.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.rb_Sta_Open.AutoSize = true;
-            this.rb_Sta_Open.Location = new System.Drawing.Point(32, 113);
+            this.rb_Sta_Open.Location = new System.Drawing.Point(36, 113);
             this.rb_Sta_Open.Name = "rb_Sta_Open";
             this.rb_Sta_Open.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.rb_Sta_Open.Size = new System.Drawing.Size(152, 33);
@@ -420,7 +420,7 @@
             // 
             this.rb_sta_unknown.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.rb_sta_unknown.AutoSize = true;
-            this.rb_sta_unknown.Location = new System.Drawing.Point(32, 161);
+            this.rb_sta_unknown.Location = new System.Drawing.Point(36, 161);
             this.rb_sta_unknown.Name = "rb_sta_unknown";
             this.rb_sta_unknown.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.rb_sta_unknown.Size = new System.Drawing.Size(188, 33);
@@ -435,11 +435,11 @@
             this.groupBox1.Controls.Add(this.rb_sta_unknown);
             this.groupBox1.Controls.Add(this.rb_Sta_Open);
             this.groupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupBox1.Location = new System.Drawing.Point(412, 42);
+            this.groupBox1.Location = new System.Drawing.Point(414, 42);
             this.groupBox1.Margin = new System.Windows.Forms.Padding(1);
             this.groupBox1.Name = "groupBox1";
             this.tableLayoutPanel10.SetRowSpan(this.groupBox1, 3);
-            this.groupBox1.Size = new System.Drawing.Size(233, 211);
+            this.groupBox1.Size = new System.Drawing.Size(237, 211);
             this.groupBox1.TabIndex = 28;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Station in control         ";
@@ -450,7 +450,7 @@
             this.groupBox2.Controls.Add(this.rb_cu_unknown);
             this.groupBox2.Controls.Add(this.rb_cu_B);
             this.groupBox2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupBox2.Location = new System.Drawing.Point(162, 42);
+            this.groupBox2.Location = new System.Drawing.Point(164, 42);
             this.groupBox2.Margin = new System.Windows.Forms.Padding(1);
             this.groupBox2.Name = "groupBox2";
             this.tableLayoutPanel10.SetRowSpan(this.groupBox2, 3);
@@ -1257,6 +1257,18 @@
             this.label17.TabIndex = 84;
             this.label17.Text = "40008";
             // 
+            // cbALL
+            // 
+            this.cbALL.AutoSize = true;
+            this.cbALL.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbALL.Location = new System.Drawing.Point(459, 3);
+            this.cbALL.Name = "cbALL";
+            this.cbALL.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.cbALL.Size = new System.Drawing.Size(158, 33);
+            this.cbALL.TabIndex = 104;
+            this.cbALL.Text = "ALL faults";
+            this.cbALL.UseVisualStyleBackColor = true;
+            // 
             // tableLayoutPanel6
             // 
             this.tableLayoutPanel6.AutoSize = true;
@@ -1267,7 +1279,7 @@
             this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 152F));
             this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 149F));
             this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 151F));
-            this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 100F));
+            this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 101F));
             this.tableLayoutPanel6.Controls.Add(this.label20, 0, 6);
             this.tableLayoutPanel6.Controls.Add(this.label19, 5, 6);
             this.tableLayoutPanel6.Controls.Add(this.lbl_port_bucket, 3, 2);
@@ -1298,14 +1310,14 @@
             this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 43F));
             this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 12F));
             this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel6.Size = new System.Drawing.Size(819, 818);
+            this.tableLayoutPanel6.Size = new System.Drawing.Size(820, 818);
             this.tableLayoutPanel6.TabIndex = 82;
             // 
             // label20
             // 
             this.label20.AutoSize = true;
             this.label20.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label20.Location = new System.Drawing.Point(721, 728);
+            this.label20.Location = new System.Drawing.Point(722, 728);
             this.label20.Name = "label20";
             this.label20.Size = new System.Drawing.Size(94, 43);
             this.label20.TabIndex = 114;
@@ -1314,7 +1326,7 @@
             // label19
             // 
             this.label19.AutoSize = true;
-            this.label19.Location = new System.Drawing.Point(20, 728);
+            this.label19.Location = new System.Drawing.Point(21, 728);
             this.label19.Name = "label19";
             this.label19.Size = new System.Drawing.Size(78, 29);
             this.label19.TabIndex = 113;
@@ -1325,7 +1337,7 @@
             this.cbhpuB_D2_2.AutoSize = true;
             this.tableLayoutPanel6.SetColumnSpan(this.cbhpuB_D2_2, 2);
             this.cbhpuB_D2_2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.cbhpuB_D2_2.Location = new System.Drawing.Point(407, 731);
+            this.cbhpuB_D2_2.Location = new System.Drawing.Point(408, 731);
             this.cbhpuB_D2_2.Name = "cbhpuB_D2_2";
             this.cbhpuB_D2_2.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.cbhpuB_D2_2.Size = new System.Drawing.Size(307, 37);
@@ -1338,7 +1350,7 @@
             this.cbhpuA_D2_2.AutoSize = true;
             this.tableLayoutPanel6.SetColumnSpan(this.cbhpuA_D2_2, 2);
             this.cbhpuA_D2_2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.cbhpuA_D2_2.Location = new System.Drawing.Point(105, 731);
+            this.cbhpuA_D2_2.Location = new System.Drawing.Point(106, 731);
             this.cbhpuA_D2_2.Name = "cbhpuA_D2_2";
             this.cbhpuA_D2_2.Size = new System.Drawing.Size(295, 37);
             this.cbhpuA_D2_2.TabIndex = 89;
@@ -1578,15 +1590,16 @@
             this.tableLayoutPanel7.Size = new System.Drawing.Size(609, 453);
             this.tableLayoutPanel7.TabIndex = 103;
             // 
-            // label18
+            // cbALLMTUs
             // 
-            this.label18.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.label18.AutoSize = true;
-            this.label18.Location = new System.Drawing.Point(224, 30);
-            this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(78, 29);
-            this.label18.TabIndex = 113;
-            this.label18.Text = "40051";
+            this.cbALLMTUs.AutoSize = true;
+            this.cbALLMTUs.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbALLMTUs.Location = new System.Drawing.Point(150, 381);
+            this.cbALLMTUs.Name = "cbALLMTUs";
+            this.cbALLMTUs.Size = new System.Drawing.Size(152, 33);
+            this.cbALLMTUs.TabIndex = 115;
+            this.cbALLMTUs.Text = "ALL MTU";
+            this.cbALLMTUs.UseVisualStyleBackColor = true;
             // 
             // label6
             // 
@@ -1599,17 +1612,15 @@
             this.label6.TabIndex = 113;
             this.label6.Text = "40052                      ";
             // 
-            // cbALL
+            // label18
             // 
-            this.cbALL.AutoSize = true;
-            this.cbALL.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbALL.Location = new System.Drawing.Point(459, 3);
-            this.cbALL.Name = "cbALL";
-            this.cbALL.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.cbALL.Size = new System.Drawing.Size(158, 33);
-            this.cbALL.TabIndex = 104;
-            this.cbALL.Text = "ALL faults";
-            this.cbALL.UseVisualStyleBackColor = true;
+            this.label18.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.label18.AutoSize = true;
+            this.label18.Location = new System.Drawing.Point(224, 30);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(78, 29);
+            this.label18.TabIndex = 113;
+            this.label18.Text = "40051";
             // 
             // cbMTU_A_D0_0
             // 
@@ -1715,6 +1726,16 @@
             this.tableLayoutPanel8.Size = new System.Drawing.Size(609, 306);
             this.tableLayoutPanel8.TabIndex = 113;
             // 
+            // label21
+            // 
+            this.label21.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.label21.AutoSize = true;
+            this.label21.Location = new System.Drawing.Point(84, 24);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(137, 29);
+            this.label21.TabIndex = 115;
+            this.label21.Text = "MTU Faults";
+            // 
             // tableLayoutPanel9
             // 
             this.tableLayoutPanel9.ColumnCount = 2;
@@ -1738,27 +1759,6 @@
             this.tableLayoutPanel9.Size = new System.Drawing.Size(609, 306);
             this.tableLayoutPanel9.TabIndex = 114;
             // 
-            // cbALLMTUs
-            // 
-            this.cbALLMTUs.AutoSize = true;
-            this.cbALLMTUs.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbALLMTUs.Location = new System.Drawing.Point(150, 381);
-            this.cbALLMTUs.Name = "cbALLMTUs";
-            this.cbALLMTUs.Size = new System.Drawing.Size(152, 33);
-            this.cbALLMTUs.TabIndex = 115;
-            this.cbALLMTUs.Text = "ALL MTU";
-            this.cbALLMTUs.UseVisualStyleBackColor = true;
-            // 
-            // label21
-            // 
-            this.label21.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.label21.AutoSize = true;
-            this.label21.Location = new System.Drawing.Point(84, 24);
-            this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(137, 29);
-            this.label21.TabIndex = 115;
-            this.label21.Text = "MTU Faults";
-            // 
             // tableLayoutPanel10
             // 
             this.tableLayoutPanel10.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.Single;
@@ -1766,7 +1766,7 @@
             this.tableLayoutPanel10.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 41.08911F));
             this.tableLayoutPanel10.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 58.91089F));
             this.tableLayoutPanel10.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 249F));
-            this.tableLayoutPanel10.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 158F));
+            this.tableLayoutPanel10.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 160F));
             this.tableLayoutPanel10.Controls.Add(this.btn_controlUnitB_powered, 3, 2);
             this.tableLayoutPanel10.Controls.Add(this.btn_controlUnitA_powered, 3, 1);
             this.tableLayoutPanel10.Controls.Add(this.labelUnitInControl, 3, 3);
@@ -1782,7 +1782,7 @@
             this.tableLayoutPanel10.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 82F));
             this.tableLayoutPanel10.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 61F));
             this.tableLayoutPanel10.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 63F));
-            this.tableLayoutPanel10.Size = new System.Drawing.Size(812, 320);
+            this.tableLayoutPanel10.Size = new System.Drawing.Size(820, 320);
             this.tableLayoutPanel10.TabIndex = 115;
             // 
             // tableLayoutPanel11

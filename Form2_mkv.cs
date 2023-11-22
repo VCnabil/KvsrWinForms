@@ -153,23 +153,30 @@ namespace KVSRWindowsFormsAppFramework
             timerauto0.Interval = 50;
             timerauto0.Tick += TimerAuto0_Tick;
 
+
+            timerauto1.Interval = 12;
+            timerauto1.Tick += TimerAuto1_Tick;
+
+            timerread.Interval = 100;
+            timerread.Tick += TimerREAD_Tick;
+
             _byteArray_SoftwareVersions = new byte[8] { 0x64, 0x03, 0x00, 0x01, 0x00, 0, 0, 0 };
             _byteArra_AM_softVersion = new byte[8] { 0x02, 0x01, 0x39, 0x05, 0x09, 0x00, 0, 0 };
-            _byteArra_CIM_softVersion = new byte[8] { 250, 0, 50, 0x64, 0x39, 0x05, 0x2D, 0x00};
+            _byteArra_CIM_softVersion = new byte[8] { 250, 0, 50, 0x64, 0x39, 0x05, 0x2D, 0x00 };
             _bar_FF8C_cuINctrl_StaInctrl_throttle_00 = new byte[8];
             _bar_FF8C_cuINctrl_StaInctrl_throttle_01 = new byte[8];
-             _bar_FEFC_FB_nozBuk_00 = new byte[8];
+            _bar_FEFC_FB_nozBuk_00 = new byte[8];
             _bar_FEFC_FB_nozBuk_01 = new byte[8];
 
-            _bar_FF8D_Faults_00 = new byte[8]; 
+            _bar_FF8D_Faults_00 = new byte[8];
             _bar_FF8D_Faults_01 = new byte[8];
 
-             _bar_FFA1_FB_hpualams_01 = new byte[8];
+            _bar_FFA1_FB_hpualams_01 = new byte[8];
             _bar_FFA1_FB_hpualams_02 = new byte[8];
 
             _bar_FFA2_MTU_01 = new byte[8];
             _bar_FFA2_MTU_02 = new byte[8];
-            
+
             canManager = new CanManager();
             canManager.ListChannels();
             canManager.OpenChannel(0);
@@ -177,28 +184,7 @@ namespace KVSRWindowsFormsAppFramework
             canManager.GoOnBus();
 
 
-          //  labelStationInControl
-            // Populate ComboBoxes with enum values
-            //comboBoxStationInControl.DataSource = Enum.GetValues(typeof(StationInControl));
-            //comboBoxUnitInControl.DataSource = Enum.GetValues(typeof(UnitInControl));
 
-            // Set initial selections
-            // comboBoxUnitInControl.SelectedItem = UnitInControl.UnitA;
-            // _selectedUnitInControl = UnitInControl.UnitA;
-
-            //comboBoxStationInControl.SelectedItem = StationInControl.MainBridge;
-            //_selectedStationInControl = StationInControl.MainBridge;
-
-            //comboBoxStationInControl.Items.Add("OpenBridge");
-            //comboBoxStationInControl.Items.Add("MainBridge");
-            //comboBoxStationInControl.Items.Add("Unknown");
-
-            //comboBoxUnitInControl.Items.Add("UnitA");
-            //comboBoxUnitInControl.Items.Add("UnitB");
-            //comboBoxUnitInControl.Items.Add("Unknown");
-
-            //comboBoxStationInControl.SelectedIndexChanged += ComboBoxStationInControl_SelectedIndexChanged;
-            //comboBoxUnitInControl.SelectedIndexChanged += ComboBoxUnitInControl_SelectedIndexChanged;
             btnToggleTimer.Click += BtnToggleTimer_Click;
 
             // Subscribe to Button Click events
@@ -335,6 +321,8 @@ namespace KVSRWindowsFormsAppFramework
             cb_auto0.CheckedChanged += Oncb_auto0_CheckedChanged;
 
             cbRandSlider.CheckedChanged += Oncb_Rand_CheckedChanged;
+
+            timerread.Start();
         }
         private void Oncb_Rand_CheckedChanged(object sender, EventArgs e)
         {
@@ -383,6 +371,7 @@ namespace KVSRWindowsFormsAppFramework
             if (cb_auto0.Checked == true)
             {
                 timerauto0.Start();
+                timerauto1.Start();
                 slider_port_Speed.Enabled = false;  // Disable manual control
                 slider_stbd_Speed.Enabled = false;
                 slider_port_Bucket.Enabled = false;
@@ -393,6 +382,7 @@ namespace KVSRWindowsFormsAppFramework
             else
             {
                 timerauto0.Stop();
+                timerauto1.Stop();
                 slider_port_Speed.Enabled = true;   // Enable manual control
                 slider_stbd_Speed.Enabled = true;
                 slider_port_Bucket.Enabled = true;
@@ -402,52 +392,20 @@ namespace KVSRWindowsFormsAppFramework
             }
         }
         //timer for auto throttle
-        private void TimerAuto0_Tick(object sender, EventArgs e)
+
+
+        int x = 0;
+        private void TimerREAD_Tick(object sender, EventArgs e)
         {
-            if (increasing_PS)
-            {
-                if (slider_port_Speed.Value < slider_port_Speed.Maximum)
-                {
-                    slider_port_Speed.Value++;
-                }
-                else
-                {
-                    increasing_PS = false;
-                }
-            }
-            else
-            {
-                if (slider_port_Speed.Value > slider_port_Speed.Minimum)
-                {
-                    slider_port_Speed.Value--;
-                }
-                else
-                {
-                    increasing_PS = true;
-                }
-            }
-            if (increasing_SS)
-            {
-                if (slider_stbd_Speed.Value < slider_stbd_Speed.Maximum)
-                {
-                    slider_stbd_Speed.Value++;
-                }
-                else
-                {
-                    increasing_SS = false;
-                }
-            }
-            else
-            {
-                if (slider_stbd_Speed.Value > slider_stbd_Speed.Minimum)
-                {
-                    slider_stbd_Speed.Value--;
-                }
-                else
-                {
-                    increasing_SS = true;
-                }
-            }
+            x++;
+            if (x > 65534) x = 0;
+            
+            label1.Text = canManager.RecMEss() + "message read by can" +x;
+        
+        }
+        private void TimerAuto1_Tick(object sender, EventArgs e)
+        {
+           
             if (increasing_PB)
             {
                 if (slider_port_Bucket.Value < slider_port_Bucket.Maximum)
@@ -536,6 +494,55 @@ namespace KVSRWindowsFormsAppFramework
                     increasing_SN = true;
                 }
             }
+        }
+
+        private void TimerAuto0_Tick(object sender, EventArgs e)
+        {
+            if (increasing_PS)
+            {
+                if (slider_port_Speed.Value < slider_port_Speed.Maximum)
+                {
+                    slider_port_Speed.Value++;
+                }
+                else
+                {
+                    increasing_PS = false;
+                }
+            }
+            else
+            {
+                if (slider_port_Speed.Value > slider_port_Speed.Minimum)
+                {
+                    slider_port_Speed.Value--;
+                }
+                else
+                {
+                    increasing_PS = true;
+                }
+            }
+            if (increasing_SS)
+            {
+                if (slider_stbd_Speed.Value < slider_stbd_Speed.Maximum)
+                {
+                    slider_stbd_Speed.Value++;
+                }
+                else
+                {
+                    increasing_SS = false;
+                }
+            }
+            else
+            {
+                if (slider_stbd_Speed.Value > slider_stbd_Speed.Minimum)
+                {
+                    slider_stbd_Speed.Value--;
+                }
+                else
+                {
+                    increasing_SS = true;
+                }
+            }
+            
         }
 
 

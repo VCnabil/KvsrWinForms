@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace KVSRWindowsFormsAppFramework
 {
@@ -63,6 +64,7 @@ namespace KVSRWindowsFormsAppFramework
             CheckStatus(status, "canWrite");
         }
 
+
         public void ReceiveMessage()
         {
             Canlib.canStatus status;
@@ -98,7 +100,34 @@ namespace KVSRWindowsFormsAppFramework
                 }
             }
         }
+        bool receivingMessages = true; // Flag to start/stop receiving messages
 
+        string message="";
+        public string RecMEss()
+        {
+            Canlib.canStatus status;
+            byte[] data = new byte[8];
+            int id;
+            int dlc;
+            int flags;
+            long timestamp;
+
+            status = Canlib.canReadWait(handle, out id, data, out dlc, out flags, out timestamp, 100);
+
+            if (status == Canlib.canStatus.canOK)
+            {
+                // Update the label with the received message
+                message = $"Received Message: ID={id}, DLC={dlc}, Data={BitConverter.ToString(data, 0, dlc)}, Timestamp={timestamp}";
+                return message ;
+            }
+            else if (status != Canlib.canStatus.canERR_NOMSG)
+            {
+                CheckStatus(status, "canReadWait");
+                // Handle error
+                return "Error reading CAN message";
+            }
+            return "";
+        }
 
         public void GoOffBus()
         {

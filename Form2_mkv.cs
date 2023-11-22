@@ -53,6 +53,18 @@ namespace KVSRWindowsFormsAppFramework
 
         private int decimal_MTU_A_D0;
         private int decimal_MTU_B_D0;
+
+        private bool increasing_PS = true;
+        private bool increasing_SS = true;
+
+        private bool increasing_PB = true;
+        private bool increasing_SB = true;
+
+        private bool increasing_PN = true;
+        private bool increasing_SN = true;
+
+        bool runAutoThrottles = false;
+        int throttle_autoValue = 0;
         private enum StationInControl
         {
             OpenBridge,
@@ -137,6 +149,9 @@ namespace KVSRWindowsFormsAppFramework
 
             timer60.Interval = 60;
             timer60.Tick += Timer60_Tick;
+
+            timerauto0.Interval = 50;
+            timerauto0.Tick += TimerAuto0_Tick;
 
             _byteArray_SoftwareVersions = new byte[8] { 0x64, 0x03, 0x00, 0x01, 0x00, 0, 0, 0 };
             _byteArra_AM_softVersion = new byte[8] { 0x02, 0x01, 0x39, 0x05, 0x09, 0x00, 0, 0 };
@@ -315,7 +330,216 @@ namespace KVSRWindowsFormsAppFramework
             cbALL.CheckedChanged += OncbAllCheckedChanged;
             cbALLMTUs.CheckedChanged += OncbAllPropperCheckedChanged;
             cbALLMTUs.Checked = true;
+
+
+            cb_auto0.CheckedChanged += Oncb_auto0_CheckedChanged;
+
+            cbRandSlider.CheckedChanged += Oncb_Rand_CheckedChanged;
         }
+        private void Oncb_Rand_CheckedChanged(object sender, EventArgs e)
+        {
+            if (cbRandSlider.Checked == true)
+            {
+                Random random = new Random();
+                int randomValue_port_Speed = random.Next((int)slider_port_Speed.Minimum, (int)slider_port_Speed.Maximum + 1);
+                int randomValue_Stbd_Speed = random.Next((int)slider_stbd_Speed.Minimum, (int)slider_stbd_Speed.Maximum + 1);
+                int randomValue_port_Buk = random.Next((int)slider_port_Bucket.Minimum, (int)slider_port_Bucket.Maximum + 1);
+                int randomValue_Stbd_Buk = random.Next((int)slider_stbd_Bucket.Minimum, (int)slider_stbd_Bucket.Maximum + 1);
+                int randomValue_port_Noz = random.Next((int)slider_port_Noz.Minimum, (int)slider_port_Noz.Maximum + 1);
+                int randomValue_Stbd_Noz = random.Next((int)slider_stbd_Noz.Minimum, (int)slider_stbd_Noz.Maximum + 1);
+                // Set the slider's value to the random number
+                slider_port_Speed.Value = randomValue_port_Speed;
+                slider_stbd_Speed.Value = randomValue_Stbd_Speed;
+                slider_port_Bucket.Value = randomValue_port_Buk;
+                slider_stbd_Bucket.Value = randomValue_Stbd_Buk;
+                slider_port_Noz.Value = randomValue_port_Noz;
+                slider_stbd_Noz.Value = randomValue_Stbd_Noz;
+                lbl_port_Speed.Text = randomValue_port_Speed.ToString();
+                lbl_stbd_Speed.Text = randomValue_Stbd_Speed.ToString();
+                lbl_port_bucket.Text = randomValue_port_Buk.ToString();
+                lbl_stbd_bucket.Text = randomValue_Stbd_Buk.ToString();
+                lbl_port_Noz.Text = randomValue_port_Noz.ToString();
+                lbl_stbd_Noz.Text = randomValue_Stbd_Noz.ToString();
+            }
+            else
+            {
+                slider_port_Speed.Value = 50;
+                slider_stbd_Speed.Value = 50;
+                slider_port_Noz.Value = 125;
+                slider_stbd_Noz.Value = 125;
+                slider_port_Bucket.Value = 125;
+                slider_stbd_Bucket.Value = 125;
+                // Update labels with initial value
+                lbl_port_Speed.Text = "50";
+                lbl_stbd_Speed.Text = "50";
+                lbl_port_Noz.Text = "125";
+                lbl_stbd_Noz.Text = "125";
+                lbl_port_bucket.Text = "125";
+                lbl_stbd_bucket.Text = "125";
+            }
+        }
+        private void Oncb_auto0_CheckedChanged(object sender, EventArgs e)
+        {
+            if (cb_auto0.Checked == true)
+            {
+                timerauto0.Start();
+                slider_port_Speed.Enabled = false;  // Disable manual control
+                slider_stbd_Speed.Enabled = false;
+                slider_port_Bucket.Enabled = false;
+                slider_stbd_Bucket.Enabled = false;
+                slider_port_Noz.Enabled = false;
+                slider_stbd_Noz.Enabled = false;
+            }
+            else
+            {
+                timerauto0.Stop();
+                slider_port_Speed.Enabled = true;   // Enable manual control
+                slider_stbd_Speed.Enabled = true;
+                slider_port_Bucket.Enabled = true;
+                slider_stbd_Bucket.Enabled = true;
+                slider_port_Noz.Enabled = true;
+                slider_stbd_Noz.Enabled = true;
+            }
+        }
+        //timer for auto throttle
+        private void TimerAuto0_Tick(object sender, EventArgs e)
+        {
+            if (increasing_PS)
+            {
+                if (slider_port_Speed.Value < slider_port_Speed.Maximum)
+                {
+                    slider_port_Speed.Value++;
+                }
+                else
+                {
+                    increasing_PS = false;
+                }
+            }
+            else
+            {
+                if (slider_port_Speed.Value > slider_port_Speed.Minimum)
+                {
+                    slider_port_Speed.Value--;
+                }
+                else
+                {
+                    increasing_PS = true;
+                }
+            }
+            if (increasing_SS)
+            {
+                if (slider_stbd_Speed.Value < slider_stbd_Speed.Maximum)
+                {
+                    slider_stbd_Speed.Value++;
+                }
+                else
+                {
+                    increasing_SS = false;
+                }
+            }
+            else
+            {
+                if (slider_stbd_Speed.Value > slider_stbd_Speed.Minimum)
+                {
+                    slider_stbd_Speed.Value--;
+                }
+                else
+                {
+                    increasing_SS = true;
+                }
+            }
+            if (increasing_PB)
+            {
+                if (slider_port_Bucket.Value < slider_port_Bucket.Maximum)
+                {
+                    slider_port_Bucket.Value++;
+                }
+                else
+                {
+                    increasing_PB = false;
+                }
+            }
+            else
+            {
+                if (slider_port_Bucket.Value > slider_port_Bucket.Minimum)
+                {
+                    slider_port_Bucket.Value--;
+                }
+                else
+                {
+                    increasing_PB = true;
+                }
+            }
+            if (increasing_SB)
+            {
+                if (slider_stbd_Bucket.Value < slider_stbd_Bucket.Maximum)
+                {
+                    slider_stbd_Bucket.Value++;
+                }
+                else
+                {
+                    increasing_SB = false;
+                }
+            }
+            else
+            {
+                if (slider_stbd_Bucket.Value > slider_stbd_Bucket.Minimum)
+                {
+                    slider_stbd_Bucket.Value--;
+                }
+                else
+                {
+                    increasing_SB = true;
+                }
+            }
+            if (increasing_PN)
+            {
+                if (slider_port_Noz.Value < slider_port_Noz.Maximum)
+                {
+                    slider_port_Noz.Value++;
+                }
+                else
+                {
+                    increasing_PN = false;
+                }
+            }
+            else
+            {
+                if (slider_port_Noz.Value > slider_port_Noz.Minimum)
+                {
+                    slider_port_Noz.Value--;
+                }
+                else
+                {
+                    increasing_PN = true;
+                }
+            }
+            if (increasing_SN)
+            {
+                if (slider_stbd_Noz.Value < slider_stbd_Noz.Maximum)
+                {
+                    slider_stbd_Noz.Value++;
+                }
+                else
+                {
+                    increasing_SN = false;
+                }
+            }
+            else
+            {
+                if (slider_stbd_Noz.Value > slider_stbd_Noz.Minimum)
+                {
+                    slider_stbd_Noz.Value--;
+                }
+                else
+                {
+                    increasing_SN = true;
+                }
+            }
+        }
+
+
+
         private void Timer60_Tick(object sender, EventArgs e)
         {
             Update_FF8C_throt_incontrol();
@@ -335,6 +559,7 @@ namespace KVSRWindowsFormsAppFramework
             SendFFA2_MTU();
 
         }
+
 
         private void OncbAllCheckedChanged(object sender, EventArgs e)
         {
@@ -608,7 +833,6 @@ namespace KVSRWindowsFormsAppFramework
             sendData_sysinfo();
         }
 
-
    
 
         private void sendData_sysinfo()
@@ -817,7 +1041,7 @@ namespace KVSRWindowsFormsAppFramework
         // 2_Port_B2_Stbd_NozzFB;
         // 3_Port_B3_Port_NozzFB;
         // 5_Port_B5_Stbd_BuckFB;
-        // sending 18FEFC00     D0  D1  D2  D3  D4  D5  D6  D7 
+        // sending 18FEFC00     D0  D1  D2  D3  D4  D5  D6  D7       
         //                      \       \   \       \__________ STBD Bucket Feedback 5_Port_B5_Stbd_BuckFB
         //                       \       \   \_________________ PORT Nozzle Feedback 3_Port_B3_Port_NozzFB    
         //                        \       \____________________ STBD Nozzle Feedback 2_Port_B2_Stbd_NozzFB

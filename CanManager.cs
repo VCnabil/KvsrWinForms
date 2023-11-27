@@ -5,16 +5,22 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Windows;
+using System.Windows.Interop;
 
 namespace KVSRWindowsFormsAppFramework
 {
     public class CanManager
     {
         private int handle;
-
+        public delegate void MessageReceivedHandler(string message);
+        public event MessageReceivedHandler OnMessageReceived;
+        byte[] datareceivedFFFA;
+        string strid = "";
         public CanManager()
         {
             Canlib.canInitializeLibrary();
+            datareceivedFFFA= new byte[8];
         }
 
         public void ListChannels()
@@ -65,7 +71,7 @@ namespace KVSRWindowsFormsAppFramework
         }
 
 
-        public void ReceiveMessage()
+        public void ReceiveMessageold()
         {
             Canlib.canStatus status;
             byte[] data = new byte[8];
@@ -102,33 +108,151 @@ namespace KVSRWindowsFormsAppFramework
         }
         bool receivingMessages = true; // Flag to start/stop receiving messages
 
-        string message="";
-        public string RecMEss()
+
+        public void ReceiveMessage(bool start)
         {
+            if (start)
+            {
+                byte[] data = new byte[8];
+                int id;
+                int dlc;
+                int flags;
+                long timestamp;
+                Canlib.canStatus status;
+
+                status = Canlib.canReadWait(handle, out id, data, out dlc, out flags, out timestamp, 100);
+
+                if (status == Canlib.canStatus.canOK)
+                {
+                    string message = $"Received Message: ID={id}, DLC={dlc}, Data={BitConverter.ToString(data, 0, dlc)}, Timestamp={timestamp}";
+                    OnMessageReceived?.Invoke(message);
+                }
+                else if (status != Canlib.canStatus.canERR_NOMSG)
+                {
+                    CheckStatus(status, "canReadWait");
+                }
+            }
+        }
+
+        public string ReceiveMessageV2(bool start)
+        {
+            string meg = ".";
             Canlib.canStatus status;
             byte[] data = new byte[8];
             int id;
             int dlc;
             int flags;
             long timestamp;
+            bool finished = false;
+
+            Console.WriteLine("Press the Spacebar to stop receiving messages.");
+
+            
+                status = Canlib.canReadWait(handle, out id, data, out dlc, out flags, out timestamp, 100);
+
+                if (status == Canlib.canStatus.canOK)
+                {
+                    meg=$"Received Message: ID={id}, DLC={dlc}, Data={BitConverter.ToString(data, 0, dlc)}, Timestamp={timestamp}";
+                }
+                else if (status != Canlib.canStatus.canERR_NOMSG)
+                {
+                    CheckStatus(status, "canReadWait");
+                meg = "caneait"; // Exit the loop if an error occurs
+                }
+
+             return meg ;
+           
+        }
+
+
+        public byte[] ReceiveMessageSpecificForAxioTest( )
+        {
+            string meg = ".";
+            Canlib.canStatus status;
+            byte[] data = new byte[8];
+            int id;
+            int dlc;
+            int flags;
+            long timestamp;
+            bool finished = false;
+
+            Console.WriteLine("Press the Spacebar to stop receiving messages.");
+
 
             status = Canlib.canReadWait(handle, out id, data, out dlc, out flags, out timestamp, 100);
 
             if (status == Canlib.canStatus.canOK)
             {
-                // Update the label with the received message
-                message = $"Received Message: ID={id}, DLC={dlc}, Data={BitConverter.ToString(data, 0, dlc)}, Timestamp={timestamp}";
-                return message ;
+                meg = $"Received Message: ID={id}, DLC={dlc}, Data={BitConverter.ToString(data, 0, dlc)}, Timestamp={timestamp}";
+
+                if (id == 0x18FFA00) {
+                    data[0] = 1;
+                    data[1] = 1;
+
+                    return data;
+                }
             }
             else if (status != Canlib.canStatus.canERR_NOMSG)
             {
                 CheckStatus(status, "canReadWait");
-                // Handle error
-                return "Error reading CAN message";
+                meg = "caneait"; // Exit the loop if an error occurs
             }
-            return "";
+
+            return data;
+
         }
 
+        public byte[] RGetdatas()
+        {
+            string meg = ".";
+            Canlib.canStatus status;
+            byte[] data = new byte[8];
+            int id;
+            int dlc;
+            int flags;
+            long timestamp;
+            bool finished = false;
+
+            //Console.WriteLine("Press the Spacebar to stop receiving messages.");
+
+
+            status = Canlib.canReadWait(handle, out id, data, out dlc, out flags, out timestamp, 100);
+
+            if (status == Canlib.canStatus.canOK)
+            {
+                //meg = $"Received Message: ID={id}, DLC={dlc}, Data={BitConverter.ToString(data, 0, dlc)}, Timestamp={timestamp}";
+
+                if (id == 419428864/*0x18FFA00*/)
+                {
+                     
+
+                    // return data;
+                    datareceivedFFFA[0] = data[0];
+                    datareceivedFFFA[1] = data[1];
+                    datareceivedFFFA[2] = data[2];
+                    datareceivedFFFA[3] = data[3];
+                    datareceivedFFFA[4] = data[4];
+                    datareceivedFFFA[5] = data[5];
+                    datareceivedFFFA[6] = data[6];
+                    datareceivedFFFA[7] = data[7];
+                }
+            }
+            else if (status != Canlib.canStatus.canERR_NOMSG)
+            {
+                CheckStatus(status, "canReadWait");
+                //meg = "caneait"; // Exit the loop if an error occurs
+            }
+     
+            if(id==419428864)
+            strid = id.ToString();
+            return datareceivedFFFA;
+
+        }
+        public string getid() {
+
+            return strid;
+        }
+         
         public void GoOffBus()
         {
             var status = Canlib.canBusOff(handle);
@@ -141,7 +265,31 @@ namespace KVSRWindowsFormsAppFramework
             CheckStatus(status, "canClose");
         }
 
+
         private void CheckStatus(Canlib.canStatus status, string method)
+        {
+            if (status < 0)
+            {
+                string errorText;
+                Canlib.canGetErrorText(status, out errorText);
+
+                // Check if there's an open form
+                if (System.Windows.Forms.Application.OpenForms.Count > 0)
+                {
+                    // Use the first open form to invoke the MessageBox
+                    System.Windows.Forms.Application.OpenForms[0].Invoke(new MethodInvoker(delegate
+                    {
+                        MessageBox.Show($"{method} failed: {errorText}");
+                    }));
+                }
+                else
+                {
+                    // Fallback if no form is open
+                    Console.WriteLine($"{method} failed: {errorText}");
+                }
+            }
+        }
+        private void CheckStatussold(Canlib.canStatus status, string method)
         {
             if (status < 0)
             {

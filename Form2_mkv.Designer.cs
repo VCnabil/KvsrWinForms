@@ -177,6 +177,7 @@
             this.timerauto1 = new System.Windows.Forms.Timer(this.components);
             this.label1 = new System.Windows.Forms.Label();
             this.timerread = new System.Windows.Forms.Timer(this.components);
+            this.label_002 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.slider_port_Speed)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.slider_stbd_Speed)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.slider_port_Bucket)).BeginInit();
@@ -1994,12 +1995,22 @@
             this.label1.TabIndex = 117;
             this.label1.Text = "FFFA read";
             // 
+            // label_002
+            // 
+            this.label_002.AutoSize = true;
+            this.label_002.Location = new System.Drawing.Point(1624, 1168);
+            this.label_002.Name = "label_002";
+            this.label_002.Size = new System.Drawing.Size(128, 29);
+            this.label_002.TabIndex = 118;
+            this.label_002.Text = "FFFA read";
+            // 
             // Form2_mkv
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(14F, 29F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.InactiveCaption;
             this.ClientSize = new System.Drawing.Size(2457, 1428);
+            this.Controls.Add(this.label_002);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.tableLayoutPanel11);
             this.Controls.Add(this.tableLayoutPanel10);
@@ -2193,5 +2204,6 @@
         private System.Windows.Forms.Timer timerauto1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Timer timerread;
+        private System.Windows.Forms.Label label_002;
     }
 }

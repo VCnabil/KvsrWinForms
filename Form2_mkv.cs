@@ -324,6 +324,24 @@ namespace KVSRWindowsFormsAppFramework
 
             timerread.Start();
         }
+
+
+        int x = 0;
+        private void TimerREAD_Tick(object sender, EventArgs e)
+        {
+            x++;
+            if (x > 65534) x = 0;
+            int rez12 = 0;
+            byte[] ddaa = canManager.RGetdatas();
+            // label1.Text = ddaa[0].ToString() + " " + ddaa[1].ToString() + " " +ddaa[2].ToString() + " "+ ddaa[3].ToString() +" " ;
+            //int rez12 = (((int)(ddaa[1] & 0x3F) << 8) | ddaa[0]) >> 2;
+            
+
+            rez12=(((int)(ddaa[1] & 0x3F) << 8) | ddaa[0])>>2;
+            label1.Text = rez12.ToString();
+
+            label_002.Text = canManager.getid();
+        }
         private void Oncb_Rand_CheckedChanged(object sender, EventArgs e)
         {
             if (cbRandSlider.Checked == true)
@@ -393,16 +411,6 @@ namespace KVSRWindowsFormsAppFramework
         }
         //timer for auto throttle
 
-
-        int x = 0;
-        private void TimerREAD_Tick(object sender, EventArgs e)
-        {
-            x++;
-            if (x > 65534) x = 0;
-            
-            label1.Text = canManager.RecMEss() + "message read by can" +x;
-        
-        }
         private void TimerAuto1_Tick(object sender, EventArgs e)
         {
            

@@ -100,6 +100,7 @@
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
+    <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CanManager.cs" />
@@ -114,6 +115,12 @@
     </Compile>
     <Compile Include="Form2_mkv.Designer.cs">
       <DependentUpon>Form2_mkv.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form3_read.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form3_read.Designer.cs">
+      <DependentUpon>Form3_read.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -140,6 +147,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Form2_mkv.resx">
       <DependentUpon>Form2_mkv.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form3_read.resx">
+      <DependentUpon>Form3_read.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

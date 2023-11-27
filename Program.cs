@@ -16,7 +16,8 @@ namespace KVSRWindowsFormsAppFramework
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form2_mkv());
+           Application.Run(new Form2_mkv());
+          //  Application.Run(new Form3_read());
         }
     }
 }
